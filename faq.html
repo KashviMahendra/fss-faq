@@ -1,0 +1,100 @@
+<html>
+    <body>
+        <style>
+            body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #00008B;
+            color: #d4a627;
+            }
+
+            .accordion {
+            width: 300px;
+            }
+
+            .accordion-item {
+            margin-bottom: 5px;
+            }
+
+            .accordion-header {
+            background-color: #00008B;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #d4a627;
+            }
+
+            .accordion-content {
+            /* display: block; */
+            /* max-height: 1000px; */
+            transition: max-height 0.6s ease;
+            padding: 10px;
+            overflow: hidden;
+            background-color: #333333;
+            color: #d4a627;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            max-height: 0;
+            display: none;
+            }
+
+            .accordion-content.active {
+            display: block;
+            max-height: 1000px;
+            }
+
+        </style>
+
+        <script> 
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+        const accordionContents = document.querySelectorAll(".accordion-content");
+
+        accordionHeaders.forEach((header) => {
+        header.addEventListener("click", () => {
+            const accordionItem = header.parentElement;
+            const accordionContent = accordionItem.querySelector(".accordion-content");
+
+            accordionContents.forEach((content) => {
+            if (content !== accordionContent) {
+                content.classList.remove("active");
+                content.style.maxHeight = "0";
+            }
+            });
+
+            accordionContent.classList.toggle("active");
+
+            if (accordionContent.classList.contains("active")) {
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+            } else {
+            accordionContent.style.maxHeight = "0";
+            }
+        });
+        });
+        </script>
+
+        <div class="accordion">
+            <div class="accordion-item">
+            <div class="accordion-header">What are the age limits for enrolling at FSS?</div>
+            <div class="accordion-content">
+                <p>Anyone above the age 6 can enroll and learn horseriding</p>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <div class="accordion-header">What are the timings for the classes</div>
+            <div class="accordion-content">
+                <p>Classes are one hour each. To book a time slot, please contact the owner.</p>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <div class="accordion-header">What is the dresscode for the horse riding classes?</div>
+            <div class="accordion-content">
+                <p>Make sure to wear thick pants, preferably horse riding breeches, along with boots. Other external gear can be provided at the campus, althought it is preferred that you bring your own.</p>
+            </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">How many horses are at FSS</div>
+                <div class="accordion-content">
+                    <p>There are over 10 horses at FSS, which are cared for by our team.</p>
+                </div>
+        </div>
+    </body>
+</html>
