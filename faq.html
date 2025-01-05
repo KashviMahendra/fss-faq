@@ -3,7 +3,7 @@
         <style>
             body {
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #00008B;
+            background: #203F87;
             color: #d4a627;
             }
 
@@ -16,20 +16,18 @@
             }
 
             .accordion-header {
-            background-color: #00008B;
+            background-color: #203F87;
             padding: 10px;
             cursor: pointer;
             font-weight: bold;
-            color: #d4a627;
+            color: #da971a;
             }
 
             .accordion-content {
-            /* display: block; */
-            /* max-height: 1000px; */
             transition: max-height 0.6s ease;
             padding: 10px;
             overflow: hidden;
-            background-color: #333333;
+            background-color: #142d65;
             color: #d4a627;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
@@ -45,56 +43,107 @@
         </style>
 
         <script> 
-        const accordionHeaders = document.querySelectorAll(".accordion-header");
-        const accordionContents = document.querySelectorAll(".accordion-content");
+        document.addEventListener("DOMContentLoaded", function() {
+            const accordionHeaders = document.querySelectorAll(".accordion-header");
+            const accordionContents = document.querySelectorAll(".accordion-content");
 
-        accordionHeaders.forEach((header) => {
-        header.addEventListener("click", () => {
-            const accordionItem = header.parentElement;
-            const accordionContent = accordionItem.querySelector(".accordion-content");
+            accordionHeaders.forEach((header) => {
+                header.addEventListener("click", () => {
+                    const accordionItem = header.parentElement;
+                    const accordionContent = accordionItem.querySelector(".accordion-content");
 
-            accordionContents.forEach((content) => {
-            if (content !== accordionContent) {
-                content.classList.remove("active");
-                content.style.maxHeight = "0";
-            }
+                    accordionContents.forEach((content) => {
+                        if (content !== accordionContent) {
+                            content.classList.remove("active");
+                            content.style.maxHeight = "0";
+                        }
+                    });
+
+                    accordionContent.classList.toggle("active");
+
+                    if (accordionContent.classList.contains("active")) {
+                        accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                    } else {
+                        accordionContent.style.maxHeight = "0";
+                    }
+                });
             });
-
-            accordionContent.classList.toggle("active");
-
-            if (accordionContent.classList.contains("active")) {
-            accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
-            } else {
-            accordionContent.style.maxHeight = "0";
-            }
-        });
         });
         </script>
 
+
         <div class="accordion">
             <div class="accordion-item">
-            <div class="accordion-header">What are the age limits for enrolling at FSS?</div>
-            <div class="accordion-content">
-                <p>Anyone above the age 6 can enroll and learn horseriding</p>
-            </div>
-            </div>
-            <div class="accordion-item">
-            <div class="accordion-header">What are the timings for the classes</div>
-            <div class="accordion-content">
-                <p>Classes are one hour each. To book a time slot, please contact the owner.</p>
-            </div>
-            </div>
-            <div class="accordion-item">
-            <div class="accordion-header">What is the dresscode for the horse riding classes?</div>
-            <div class="accordion-content">
-                <p>Make sure to wear thick pants, preferably horse riding breeches, along with boots. Other external gear can be provided at the campus, althought it is preferred that you bring your own.</p>
-            </div>
+                <div class="accordion-header">What are the age limits for enrolling at FSS?   
+
+                    <svg width="15" height="10" viewBox="0 0 42 25">
+                        <path 
+                        d="M3 3L21 21L39 3" 
+                        stroke="white" 
+                        stroke-width="7" 
+                        stroke-linecap="round"/> 
+                    </svg>
+
+                </div>
+                <div class="accordion-content">
+                    <p>Anyone above the age 6 can enroll and learn horseriding</p>
+                </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-header">How many horses are at FSS</div>
+                <div class="accordion-header">What are the timings for the classes  
+
+
+                    <svg width="15" height="10" viewBox="0 0 42 25">
+                        <path 
+                        d="M3 3L21 21L39 3" 
+                        stroke="white" 
+                        stroke-width="7" 
+                        stroke-linecap="round"/> 
+                    </svg>
+
+                </div>
+                <div class="accordion-content">
+                    <p>Classes are one hour each. To book a time slot, please contact the owner.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">What is the dresscode for the horse riding classes?
+
+
+                    <svg width="15" height="10" viewBox="0 0 42 25">
+                        <path 
+                        d="M3 3L21 21L39 3" 
+                        stroke="white" 
+                        stroke-width="7" 
+                        stroke-linecap="round"/> 
+                    </svg>
+
+
+
+                </div>
+                <div class="accordion-content">
+                    <p>Make sure to wear thick pants, preferably horse riding breeches, along with boots. Other external gear can be provided at the campus, althought it is preferred that you bring your own.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">How many horses are at FSS
+
+
+                    <svg width="15" height="10" viewBox="0 0 42 25">
+                        <path 
+                        d="M3 3L21 21L39 3" 
+                        stroke="white" 
+                        stroke-width="7" 
+                        stroke-linecap="round"/> 
+                    </svg>
+
+
+                    
+                </div>
                 <div class="accordion-content">
                     <p>There are over 10 horses at FSS, which are cared for by our team.</p>
                 </div>
+            </div>
         </div>
     </body>
 </html>
